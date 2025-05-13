@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Master::factory()->count(3)->create();
+        Master::factory()->count(6)->create();
         Service::factory()->count(6)->create();
     }
 }

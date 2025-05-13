@@ -15,7 +15,10 @@
 
                     <h2>Имя: {{ $master->name }}></h2>
                     <p><strong>Должность: {{ $master->position }}</strong></p>
-                    <p><a class="btn btn-success" href="{{route('booking.services.select', ['masterId' => $master->id])}}">Выбрать мастера</a></p>
+                    <p><strong>О себе: {{ $master->bio }}</strong></p>
+                    <p><a class="btn btn-success"
+                          href="{{route('booking.services.select', ['masterId' => $master->id])}}">Выбрать мастера</a>
+                    </p>
                     <p><a class="btn btn-secondary" href="#">Посмотреть профиль »</a></p>
                 </div>
 
@@ -24,5 +27,8 @@
         <div class="row">
             @endif
             @endforeach
+        </div>
+        <div class="d-flex justify-content-center">
+            {{ $masters->links() }}
         </div>
 @endsection

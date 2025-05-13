@@ -50,6 +50,24 @@
     <!-- Custom styles for this template -->
     <link href="{{asset('carousel.css')}}" rel="stylesheet">
 </head>
+@if (session('success'))
+    <div
+        class="alert alert-success alert-dismissible fade show position-fixed bottom-0 start-50 translate-middle-x mb-3 z-3"
+        role="alert" style="z-index: 1050; min-width: 300px;">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+    </div>
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('success-alert');
+            if (alert) {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            }
+        }, 3000);
+    </script>
+@endif
 <body>
 
 @include('components.header')
@@ -66,11 +84,9 @@
                     class=""></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                     aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
+            <div class="carousel-item ">
+                <img src="{{ asset('images/img1.jpg') }}" class="d-block w-100 object-fit-cover" alt="Boroda" style="height: 80vh; object-fit: cover;">
+
 
                 <div class="container">
                     <div class="carousel-caption text-start">
@@ -82,10 +98,7 @@
                 </div>
             </div>
             <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                     aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
+                <img src="{{ asset('images/img2.jpg') }}" class="d-block w-100 object-fit-cover" alt="portret" style="height: 97vh; object-fit: cover;">
 
                 <div class="container">
                     <div class="carousel-caption">
@@ -97,10 +110,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                     aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
+                <img src="{{ asset('images/img3.jpg') }}" class="d-block w-100 object-fit-cover" alt="portret2" style="height: 97vh; object-fit: cover;">
 
                 <div class="container">
                     <div class="carousel-caption text-end">
@@ -203,6 +213,9 @@
 
 
 <script src="{{asset('bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 </body>

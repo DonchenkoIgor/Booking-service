@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $masters = Master::all();
+        $masters = Master::paginate(3);
+
         return view('booking.index', compact('masters'));
     }
 }
